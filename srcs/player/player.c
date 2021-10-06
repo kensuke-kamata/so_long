@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 11:46:23 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 17:54:58 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/06 20:37:28 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/06 21:00:20 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/so_long.h"
 
-size_t	ft_strlen(const char *s)
+void	init_player(t_game *game)
 {
 	size_t	i;
 
 	i = 0;
-	while (s && s[i])
+	while (i < game->map.matrix[ROW] * game->map.matrix[COL])
+	{
+		if (game->map.map[i] == CHAR_PLYR)
+		{
+			game->player.position[X] = i % game->map.matrix[COL];
+			game->player.position[Y] = i / game->map.matrix[COL];
+			game->map.map[i] = CHAR_EMPT;
+		}
 		i++;
-	return (i);
+	}
+	game->player.move_count = 0;
 }

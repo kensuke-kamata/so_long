@@ -22,7 +22,15 @@ SRCDIR		= ./srcs/
 
 ##### Source files
 
-SRCS		= $(SRCDIR)main.c
+SRCS		= $(SRCDIR)main.c \
+			  $(SRCDIR)args/args.c \
+			  $(SRCDIR)read/read.c \
+			  $(SRCDIR)read/matrix.c \
+			  $(SRCDIR)map/map.c \
+			  $(SRCDIR)map/valid.c \
+			  $(SRCDIR)player/player.c \
+			  $(SRCDIR)utils/free.c \
+			  $(SRCDIR)error/error.c
 
 ##### Object files
 

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 11:46:23 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 17:54:58 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/06 19:00:45 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/06 21:17:21 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/so_long.h"
 
-size_t	ft_strlen(const char *s)
+t_exit	free_map(t_game *game, t_exit status)
 {
-	size_t	i;
-
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
+	free(game->map.map);
+	return (status);
 }

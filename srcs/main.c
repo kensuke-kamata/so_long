@@ -6,23 +6,22 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:53:07 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/05 18:47:07 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/06 20:39:52 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	main(int argc, char *argv[])
 {
-	void	*mlx;
-	void	*win;
+	t_game	game;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 500, 500, "so_long");
-	mlx_loop(mlx);
-
-	(void)win;
-	(void)argc;
-	(void)argv;
+	if (!is_valid_args(&game, argc, argv))
+		return (FAILURE);
+	if (!read_berfile(&game))
+		return (FAILURE);
+	if (!parse_map(&game))
+		return (free_map(&game, FAILURE));
 	return (0);
 }
+

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 11:46:23 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 17:54:58 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/05 21:26:26 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/06 22:43:33 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/so_long.h"
 
-size_t	ft_strlen(const char *s)
+t_bool	error_system(void)
 {
-	size_t	i;
+	perror(ERRMSG);
+	return (FALSE);
+}
 
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
+t_bool	error_msg(char *msg)
+{
+	ft_printf("%s: %s", ERRMSG, msg);
+	return (FALSE);
 }
