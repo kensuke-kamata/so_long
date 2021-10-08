@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 21:26:26 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/07 14:21:22 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/07 17:43:19 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/08 10:22:43 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-t_bool	error_system(void)
+int	key_press(t_game *game, t_keycode keycode)
 {
-	perror(ERRMSG);
-	return (FALSE);
-}
-
-t_bool	error_msg(char *msg)
-{
-	ft_printf("%s: %s", ERRMSG, msg);
-	return (FALSE);
-}
-
-t_bool	exit_game(t_game *game, char *msg, t_exit status)
-{
-	error_msg(msg);
-	exit(free_map(game, status));
+	if (keycode == KEY_W)
+		printf("W\n");
+	if (keycode == KEY_D)
+		printf("D\n");
+	if (keycode == KEY_S)
+		printf("S\n");
+	if (keycode == KEY_A)
+		printf("A\n");
+	if (keycode == KEY_ESC)
+		printf("ESC\n");
+	printf("Pressed\n");
+	(void)game;
+	return (0);
 }

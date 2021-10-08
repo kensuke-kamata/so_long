@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:43:18 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 15:33:14 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:11:46 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,8 @@
 # define ERRMSG_INVFILE "invalid file\n"
 # define ERRMSG_INVEXT "invalid extension\n"
 # define ERRMSG_INVMAP "invalid map\n"
+# define ERRMSG_INVSPRITE "invalid sprite\n"
+
+# define MSG_FINISHGAME "game finished\n"
 
 #endif

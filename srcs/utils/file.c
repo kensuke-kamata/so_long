@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 21:26:26 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/07 14:21:22 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/07 14:43:38 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/07 14:44:27 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-t_bool	error_system(void)
+t_bool	is_valid_extension(char *path_to_file, char *extension)
 {
-	perror(ERRMSG);
+	char	*file_extension;
+
+	file_extension = ft_strrchr(path_to_file, '.');
+	if (!file_extension)
+		return (FALSE);
+	if (!ft_strcmp(file_extension, extension))
+		return (TRUE);
 	return (FALSE);
 }
 
-t_bool	error_msg(char *msg)
+t_bool	is_valid_file(char *path_to_file)
 {
-	ft_printf("%s: %s", ERRMSG, msg);
-	return (FALSE);
-}
+	int		fd;
+	char	buf[2];
 
-t_bool	exit_game(t_game *game, char *msg, t_exit status)
-{
-	error_msg(msg);
-	exit(free_map(game, status));
+	fd = open(path_to_file, O_RDONLY);
+	if (fd == -1)
+		return (FALSE);
+	if (read(fd, buf, 1) == -1)
+		return (FALSE);
+	close(fd);
+	return (TRUE);
 }

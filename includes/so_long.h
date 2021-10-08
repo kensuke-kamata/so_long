@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:45 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 22:48:39 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 09:58:12 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,65 @@ t_bool	is_surrounded_by_wall(t_game *game, int x, int y);
 void	init_player(t_game *game);
 
 // +------------------------------------------+ //
+//   game/game.c                                //
+// +------------------------------------------+ //
+
+void	init_game(t_game *game);
+void	game_loop(t_game *game);
+
+// +------------------------------------------+ //
+//   game/window.c                              //
+// +------------------------------------------+ //
+
+void	init_window(t_game *game);
+void	init_image(t_game *game);
+
+// +------------------------------------------+ //
+//   game/sprites.c                             //
+// +------------------------------------------+ //
+
+void	init_sprites(t_game *game);
+
+// +------------------------------------------+ //
+//   game/graphics.c                            //
+// +------------------------------------------+ //
+
+// +------------------------------------------+ //
+//   game/key.c                                 //
+// +------------------------------------------+ //
+
+int		key_press(t_game *game, t_keycode keycode);
+
+// +------------------------------------------+ //
+//   position/position.c                        //
+// +------------------------------------------+ //
+
+size_t	locate_position(t_game *game, size_t position[2]);
+t_bool	is_player_located_at(t_game *game, t_elemchar element);
+
+// +------------------------------------------+ //
+//   render/render.c                            //
+// +------------------------------------------+ //
+
+void	render_map(t_game *game);
+
+// +------------------------------------------+ //
+//   render/graphic.c                           //
+// +------------------------------------------+ //
+
+// +------------------------------------------+ //
+//   utils/file.c                               //
+// +------------------------------------------+ //
+
+t_bool	is_valid_file(char *path_to_file);
+t_bool	is_valid_extension(char *path_to_file, char *extension);
+
+// +------------------------------------------+ //
 //   utils/free.c                               //
 // +------------------------------------------+ //
 
 t_exit	free_map(t_game *game, t_exit status);
+void	free_sprites(char **sprites, int time);
 
 // +------------------------------------------+ //
 //   error/error.c                              //
@@ -96,5 +151,6 @@ t_exit	free_map(t_game *game, t_exit status);
 
 t_bool	error_msg(char *msg);
 t_bool	error_system(void);
+t_bool	exit_game(t_game *game, char *msg, t_exit status);
 
 #endif

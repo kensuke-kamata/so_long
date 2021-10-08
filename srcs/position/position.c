@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   position.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 21:26:26 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/07 14:21:22 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/07 18:50:39 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/08 09:57:58 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-t_bool	error_system(void)
+size_t	locate_position(t_game *game, size_t position[2])
 {
-	perror(ERRMSG);
-	return (FALSE);
+	return (position[X] + game->map.matrix[COL] * position[Y]);
 }
 
-t_bool	error_msg(char *msg)
+size_t	locate_player_position(t_game *game)
 {
-	ft_printf("%s: %s", ERRMSG, msg);
-	return (FALSE);
+	return (locate_position(game, game->player.position));
 }
 
-t_bool	exit_game(t_game *game, char *msg, t_exit status)
+t_bool	is_player_located_at(t_game *game, t_elemchar element)
 {
-	error_msg(msg);
-	exit(free_map(game, status));
+	return (game->map.map[locate_player_position(game)] == (char)element);
 }

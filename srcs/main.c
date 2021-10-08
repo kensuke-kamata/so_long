@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:53:07 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 20:39:52 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 09:55:53 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char *argv[])
 		return (FAILURE);
 	if (!parse_map(&game))
 		return (free_map(&game, FAILURE));
-	return (0);
+	init_game(&game);
+	game_loop(&game);
+	return (free_map(&game, SUCCESS));
 }
 

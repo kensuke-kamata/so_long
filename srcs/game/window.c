@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 21:26:26 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/07 14:21:22 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/06 23:04:26 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/06 23:20:10 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-t_bool	error_system(void)
+void	init_image(t_game *game)
 {
-	perror(ERRMSG);
-	return (FALSE);
+	game->img.img = mlx_new_image(
+		game->mlx,
+		game->map.size[WIDTH],
+		game->map.size[HEIGHT]);
+	game->img.data = (int *)mlx_get_data_addr(
+		game->img.img,
+		&game->img.bpp,
+		&game->img.size_line,
+		&game->img.endian);
 }
 
-t_bool	error_msg(char *msg)
+void	init_window(t_game *game)
 {
-	ft_printf("%s: %s", ERRMSG, msg);
-	return (FALSE);
-}
-
-t_bool	exit_game(t_game *game, char *msg, t_exit status)
-{
-	error_msg(msg);
-	exit(free_map(game, status));
+	game->mlx = mlx_init();
+	game->win = mlx_new_window(game->mlx,
+		game->map.size[WIDTH],
+		game->map.size[HEIGHT],
+		GAME_NAME);
 }

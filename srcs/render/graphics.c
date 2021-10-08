@@ -1,31 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   graphics.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 21:26:26 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/07 14:21:22 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/07 23:01:13 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/07 23:13:33 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-t_bool	error_system(void)
-{
-	perror(ERRMSG);
-	return (FALSE);
-}
-
-t_bool	error_msg(char *msg)
-{
-	ft_printf("%s: %s", ERRMSG, msg);
-	return (FALSE);
-}
-
-t_bool	exit_game(t_game *game, char *msg, t_exit status)
-{
-	error_msg(msg);
-	exit(free_map(game, status));
-}

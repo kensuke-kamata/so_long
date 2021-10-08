@@ -24,13 +24,21 @@ SRCDIR		= ./srcs/
 
 SRCS		= $(SRCDIR)main.c \
 			  $(SRCDIR)args/args.c \
-			  $(SRCDIR)read/read.c \
-			  $(SRCDIR)read/matrix.c \
+			  $(SRCDIR)error/error.c \
+			  $(SRCDIR)game/game.c \
+			  $(SRCDIR)game/window.c \
+			  $(SRCDIR)game/sprites.c \
+			  $(SRCDIR)game/key.c \
 			  $(SRCDIR)map/map.c \
 			  $(SRCDIR)map/valid.c \
 			  $(SRCDIR)player/player.c \
-			  $(SRCDIR)utils/free.c \
-			  $(SRCDIR)error/error.c
+			  $(SRCDIR)position/position.c \
+			  $(SRCDIR)read/read.c \
+			  $(SRCDIR)read/matrix.c \
+			  $(SRCDIR)render/render.c \
+			  $(SRCDIR)render/graphics.c \
+			  $(SRCDIR)utils/file.c \
+			  $(SRCDIR)utils/free.c
 
 ##### Object files
 
