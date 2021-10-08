@@ -6,15 +6,15 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 22:04:31 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 12:58:55 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 17:34:48 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
 void	render_pixel(t_game *game,
-					 size_t index[2],
-					 size_t position[2],
+					 int64_t index[2],
+					 int64_t position[2],
 					 uint32_t color)
 {
 	game->img.data[(position[X] + index[X]) \
@@ -23,9 +23,9 @@ void	render_pixel(t_game *game,
 }
 
 // Renders a sprite passed as an element at the position(x, y)
-void	render_sprite(t_game *game, size_t position[2], t_element element)
+void	render_sprite(t_game *game, int64_t position[2], t_element element)
 {
-	size_t		index[2];
+	int64_t		index[2];
 	uint32_t	color;
 
 	index[Y] = 0;
@@ -45,8 +45,8 @@ void	render_sprite(t_game *game, size_t position[2], t_element element)
 
 void	render_map(t_game *game)
 {
-	size_t		index[2];
-	size_t		position[2];
+	int64_t		index[2];
+	int64_t		position[2];
 	t_element	element;
 
 	index[Y] = 0;

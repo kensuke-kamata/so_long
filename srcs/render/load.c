@@ -6,30 +6,28 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 12:51:31 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 12:54:44 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/09 05:59:17 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-size_t	find_index(char *s, char c)
+int	find_index(char *s, char c)
 {
-	size_t	i;
+	int	i;
 
 	if (!s)
 		return (-1);
-	i = 0;
-	while (*s)
+	i = -1;
+	while (s[++i])
 	{
-		if (*s == c)
+		if (s[i] == c)
 			return (i);
-		s++;
-		i++;
 	}
 	return (-1);
 }
 
-t_element	load_element(t_game *game, size_t index[2])
+t_element	load_element(t_game *game, int64_t index[2])
 {
 	t_map_element	c;
 
@@ -37,10 +35,10 @@ t_element	load_element(t_game *game, size_t index[2])
 	return (find_index(MAP_ELEMENTS, c));
 }
 
-uint32_t	load_color(t_game *game, size_t index[2], t_element element)
+uint32_t	load_color(t_game *game, int64_t index[2], t_element element)
 {
 	float		ratio;
-	size_t		position[2];
+	int64_t		position[2];
 	uint32_t	color;
 
 	ratio = (float)game->sprites[element].size[WIDTH] / TILE_SIZE;

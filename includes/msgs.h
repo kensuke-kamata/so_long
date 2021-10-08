@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:43:18 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 12:40:02 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 16:53:18 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define ERRMSG_INVFILE "invalid file\n"
 # define ERRMSG_INVEXT "invalid extension\n"
 # define ERRMSG_INVMAP "invalid map\n"
+# define ERRMSG_INVELEMENT "invalid elements\n"
+# define ERRMSG_SURROUNDED "not surrounded by wall\n"
 # define ERRMSG_INVSPRITE "invalid sprite\n"
 
 #endif

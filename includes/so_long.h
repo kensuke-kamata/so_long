@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:45 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 12:57:48 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 17:32:00 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_bool		parse_map(t_game *game);
 // +------------------------------------------+ //
 
 t_bool		is_valid_elements(t_game *game);
-t_bool		is_surrounded_by_wall(t_game *game, int x, int y);
+t_bool		is_surrounded_by_wall(t_game *game, int64_t x, int64_t y);
 
 // +------------------------------------------+ //
 //   player/player.c                            //
@@ -84,7 +84,7 @@ t_bool		is_surrounded_by_wall(t_game *game, int x, int y);
 
 void		init_player(t_game *game);
 void		render_player(t_game *game);
-void		update_player(t_game *game, size_t x, size_t y);
+void		update_player(t_game *game, int64_t x, int64_t y);
 
 // +------------------------------------------+ //
 //   game/game.c                                //
@@ -117,7 +117,7 @@ int			key_press(t_keycode keycode, t_game *game);
 //   position/position.c                        //
 // +------------------------------------------+ //
 
-size_t		locate_position(t_game *game, size_t position[2]);
+size_t		locate_position(t_game *game, int64_t position[2]);
 size_t		locate_player_position(t_game *game);
 t_bool		is_player_at(t_game *game, t_map_element element);
 
@@ -126,14 +126,14 @@ t_bool		is_player_at(t_game *game, t_map_element element);
 // +------------------------------------------+ //
 
 void		render_map(t_game *game);
-void		render_sprite(t_game *game, size_t position[2], t_element element);
+void		render_sprite(t_game *game, int64_t position[2], t_element element);
 
 // +------------------------------------------+ //
 //   render/load.c                              //
 // +------------------------------------------+ //
 
-t_element	load_element(t_game *game, size_t index[2]);
-uint32_t	load_color(t_game *game, size_t index[2], t_element element);
+t_element	load_element(t_game *game, int64_t index[2]);
+uint32_t	load_color(t_game *game, int64_t index[2], t_element element);
 
 // +------------------------------------------+ //
 //   utils/file.c                               //

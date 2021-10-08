@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:33:21 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 12:33:51 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 17:13:15 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,8 @@ typedef enum e_color
 
 typedef struct s_player
 {
-	size_t	position[2];
-	size_t	move_count;
+	int64_t		position[2];
+	uint64_t	move_count;
 }	t_player;
 
 typedef struct s_map
@@ -135,9 +135,9 @@ typedef struct s_map
 	char	*map;
 	char	*submap;
 	char	*path_to_file;
-	size_t	matrix[2];
-	size_t	size[2];
-	size_t	collectables;
+	int64_t	matrix[2];
+	int64_t	size[2];
+	int64_t	collectables;
 }	t_map;
 
 typedef struct s_img
