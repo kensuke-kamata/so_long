@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 21:26:26 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/07 14:21:22 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:30:40 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_bool	error_system(void)
 
 t_bool	error_msg(char *msg)
 {
-	ft_printf("%s: %s", ERRMSG, msg);
+	printf("%s: %s", ERRMSG, msg);
 	return (FALSE);
 }
 

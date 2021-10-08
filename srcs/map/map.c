@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:07:01 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 21:43:30 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 13:01:49 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ t_bool	parse_map(t_game *game)
 	init_player(game);
 	if (!dup_map(game))
 		return (FALSE);
-	if (!is_surrounded_by_wall(game,
-							   game->player.position[X],
-							   game->player.position[Y]))
+	if (!is_surrounded_by_wall(
+			game,
+			game->player.position[X],
+			game->player.position[Y]))
 	{
 		free(game->map.submap);
 		return (error_msg(ERRMSG_INVMAP));

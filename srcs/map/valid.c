@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 19:31:56 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 22:30:38 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:47:18 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ t_bool	is_surrounded_by_wall(t_game *game, int x, int y)
 	if (game->map.matrix[COL] <= (size_t)x || \
 		game->map.matrix[ROW] <= (size_t)y)
 		return (FALSE);
-	if (game->map.submap[x + game->map.matrix[COL] * y] == CHAR_WALL)
+	if (game->map.submap[x + game->map.matrix[COL] * y] == MAP_WALL)
 		return (TRUE);
-	game->map.submap[x + game->map.matrix[COL] * y] = CHAR_WALL;
+	game->map.submap[x + game->map.matrix[COL] * y] = MAP_WALL;
 	if (!is_surrounded_by_wall(game, x + 1, y))
 		return (FALSE);
 	if (!is_surrounded_by_wall(game, x - 1, y))
@@ -44,11 +44,11 @@ t_bool	is_valid_elements(t_game *game)
 	player_count = 0;
 	while (i < game->map.matrix[ROW] * game->map.matrix[COL])
 	{
-		if (game->map.map[i] == CHAR_PLYR)
+		if (game->map.map[i] == MAP_PLYR)
 			player_count++;
-		if (game->map.map[i] == CHAR_EXIT)
+		if (game->map.map[i] == MAP_EXIT)
 			exit_count++;
-		if (game->map.map[i] == CHAR_CLCT)
+		if (game->map.map[i] == MAP_CLCT)
 			game->map.collectables++;
 		if (!ft_strchr(MAP_ELEMENTS, game->map.map[i++]))
 			return (FALSE);

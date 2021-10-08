@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 18:50:39 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 09:57:58 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:41:18 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	locate_player_position(t_game *game)
 	return (locate_position(game, game->player.position));
 }
 
-t_bool	is_player_located_at(t_game *game, t_elemchar element)
+t_bool	is_player_at(t_game *game, t_map_element element)
 {
 	return (game->map.map[locate_player_position(game)] == (char)element);
 }

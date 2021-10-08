@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:49:21 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/06 22:38:05 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 12:43:58 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_bool	read_berfile(t_game *game)
 	int		fd;
 
 	init_map(game);
-	if (!get_map_matrix(game))
+	if (!load_map_matrix(game))
 		return (error_msg(ERRMSG_INVMAP));
 	fd = open(game->map.path_to_file, O_RDONLY);
 	while (get_next_line_beta(fd, &line) > 0)
@@ -34,5 +34,5 @@ t_bool	read_berfile(t_game *game)
 			return (FALSE);
 		free(line);
 	}
-	return(end_read_berfile(line, fd, TRUE));
+	return (end_read_berfile(line, fd, TRUE));
 }

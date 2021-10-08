@@ -36,7 +36,7 @@ SRCS		= $(SRCDIR)main.c \
 			  $(SRCDIR)read/read.c \
 			  $(SRCDIR)read/matrix.c \
 			  $(SRCDIR)render/render.c \
-			  $(SRCDIR)render/graphics.c \
+			  $(SRCDIR)render/load.c \
 			  $(SRCDIR)utils/file.c \
 			  $(SRCDIR)utils/free.c
 

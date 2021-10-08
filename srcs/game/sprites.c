@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:24:24 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 09:55:20 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 13:00:54 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,15 @@ void	init_sprites(t_game *game)
 	while (i < SPRITE_NUM)
 	{
 		game->sprites[i].sprite = mlx_xpm_file_to_image(
-			game->mlx,
-			sprites[i],
-			&(game->sprites[i].size[WIDTH]),
-			&(game->sprites[i].size[HEIGHT]));
+				game->mlx,
+				sprites[i],
+				&(game->sprites[i].size[WIDTH]),
+				&(game->sprites[i].size[HEIGHT]));
 		game->sprites[i].data = (int *)mlx_get_data_addr(
-			game->sprites[i].sprite,
-			&(game->sprites[i].bpp),
-			&(game->sprites[i].size_line),
-			&(game->sprites[i].endian));
+				game->sprites[i].sprite,
+				&(game->sprites[i].bpp),
+				&(game->sprites[i].size_line),
+				&(game->sprites[i].endian));
 		i++;
 	}
 	free_sprites(sprites, SPRITE_NUM);

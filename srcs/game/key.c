@@ -6,25 +6,23 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:43:19 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 10:22:43 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:45:25 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	key_press(t_game *game, t_keycode keycode)
+int	key_press(t_keycode keycode, t_game *game)
 {
 	if (keycode == KEY_W)
-		printf("W\n");
+		update_player(game, 0, -1);
 	if (keycode == KEY_D)
-		printf("D\n");
+		update_player(game, 1, 0);
 	if (keycode == KEY_S)
-		printf("S\n");
+		update_player(game, 0, 1);
 	if (keycode == KEY_A)
-		printf("A\n");
+		update_player(game, -1, 0);
 	if (keycode == KEY_ESC)
-		printf("ESC\n");
-	printf("Pressed\n");
-	(void)game;
+		finish_game(game);
 	return (0);
 }
