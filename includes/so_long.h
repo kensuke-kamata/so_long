@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:45 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 17:32:00 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/17 22:13:57 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,115 +44,51 @@
 // +------------------------------------------+ //
 //   Prototypes                                 //
 // +------------------------------------------+ //
-// +------------------------------------------+ //
-//   args/args.c                                //
-// +------------------------------------------+ //
-
-t_bool		is_valid_args(t_game *game, int argc, char *argv[]);
-
-// +------------------------------------------+ //
-//   read/read.c                                //
-// +------------------------------------------+ //
-
-t_bool		read_berfile(t_game *game);
-
-// +------------------------------------------+ //
-//   read/matrix.c                              //
-// +------------------------------------------+ //
-
-t_bool		load_map_matrix(t_game *game);
-t_bool		end_read_berfile(char *line, int fd, t_bool status);
-
-// +------------------------------------------+ //
-//   map/map.c                                  //
-// +------------------------------------------+ //
-
-void		init_map(t_game *game);
-t_bool		new_map(t_game *game, char *line);
+// +--- input --- + //
+t_bool		valid_arg(t_game *game, int argc, char *argv[]);
+t_bool		is_readable(char *path_to_file);
+t_bool		has_extension(char *path_to_file, char *extension);
+// +--- map --- + //
+t_bool		read_map(t_game *game);
+t_bool		load_map(t_game *game);
 t_bool		parse_map(t_game *game);
-
-// +------------------------------------------+ //
-//   map/valid.c                                //
-// +------------------------------------------+ //
-
-t_bool		is_valid_elements(t_game *game);
-t_bool		is_surrounded_by_wall(t_game *game, int64_t x, int64_t y);
-
-// +------------------------------------------+ //
-//   player/player.c                            //
-// +------------------------------------------+ //
-
+t_bool		end_read(char *line, int fd, t_bool status);
+// +--- map/locate --- + //
+int			locate_position(t_game *game, int mapcoord[2]);
+int			locate_player_position(t_game *game);
+t_bool		is_player_at(t_game *game, t_symbol symbol);
+// +--- game --- + //
+t_bool		init_game(t_game *game);
+t_bool		init_window(t_game *game);
+t_bool		init_image(t_game *game);
+t_bool		init_sprite(t_game *game);
 void		init_player(t_game *game);
-void		render_player(t_game *game);
-void		update_player(t_game *game, int64_t x, int64_t y);
-
-// +------------------------------------------+ //
-//   game/game.c                                //
-// +------------------------------------------+ //
-
-void		init_game(t_game *game);
+void		init_enemy(t_game *game);
 void		game_loop(t_game *game);
 int			finish_game(t_game *game);
-
-// +------------------------------------------+ //
-//   game/window.c                              //
-// +------------------------------------------+ //
-
-void		init_window(t_game *game);
-void		init_image(t_game *game);
-
-// +------------------------------------------+ //
-//   game/sprites.c                             //
-// +------------------------------------------+ //
-
-void		init_sprites(t_game *game);
-
-// +------------------------------------------+ //
-//   game/key.c                                 //
-// +------------------------------------------+ //
-
+// +--- game/key --- + //
 int			key_press(t_keycode keycode, t_game *game);
-
-// +------------------------------------------+ //
-//   position/position.c                        //
-// +------------------------------------------+ //
-
-size_t		locate_position(t_game *game, int64_t position[2]);
-size_t		locate_player_position(t_game *game);
-t_bool		is_player_at(t_game *game, t_map_element element);
-
-// +------------------------------------------+ //
-//   render/render.c                            //
-// +------------------------------------------+ //
-
-void		render_map(t_game *game);
-void		render_sprite(t_game *game, int64_t position[2], t_element element);
-
-// +------------------------------------------+ //
-//   render/load.c                              //
-// +------------------------------------------+ //
-
-t_element	load_element(t_game *game, int64_t index[2]);
-uint32_t	load_color(t_game *game, int64_t index[2], t_element element);
-
-// +------------------------------------------+ //
-//   utils/file.c                               //
-// +------------------------------------------+ //
-
-t_bool		is_valid_file(char *path_to_file);
-t_bool		is_valid_extension(char *path_to_file, char *extension);
-
-// +------------------------------------------+ //
-//   utils/free.c                               //
-// +------------------------------------------+ //
-
+void		update_player(t_game *game, int x, int y);
+// +--- game/event --- + //
+void		monitor_event(t_game *game);
+// +--- render --- + //
+void		render_pixel(t_game *game, int x, int y, uint32_t color);
+void		render_field(t_game *game);
+void		render_field_sprite(t_game *game, int wincoord[2], t_element elem);
+void		render_player(t_game *game);
+void		render_enemy(t_game *game);
+void		render_counter(t_game *game);
+void		render_exclamation(t_game *game);
+// +--- render/load --- + //
+t_element	load_element(t_game *game, int mapcoord[2]);
+// +--- render/color --- + //
+uint32_t	load_field_color(t_game *game, int imgcoord[2], t_element element);
+uint32_t	load_player_color(t_game *game, int imgcoord[2]);
+uint32_t	load_enemy_color(t_game *game, int imgcoord[2]);
+uint32_t	load_exclamation_color(t_game *game, int imgcoord[2]);
+// +--- utils --- + //
 t_exit		free_map(t_game *game, t_exit status);
-void		free_sprites(char **sprites, int time);
-
-// +------------------------------------------+ //
-//   error/error.c                              //
-// +------------------------------------------+ //
-
+void		free_sprite_field(char **sprites, int time);
 t_bool		error_msg(char *msg);
 t_bool		error_system(void);
 t_bool		exit_game(t_game *game, char *msg, t_exit status);

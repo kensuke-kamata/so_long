@@ -6,14 +6,14 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:43:18 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 16:53:18 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/17 19:58:27 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MSGS_H
 # define MSGS_H
 
-# define MSG_MOVECOUNT "Move count"
+# define MSG_MOVECOUNT "Steps"
 # define MSG_FINISHGAME "Game finished\n"
 
 # define ERRMSG "Error"

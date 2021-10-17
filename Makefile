@@ -22,23 +22,29 @@ SRCDIR		= ./srcs/
 
 ##### Source files
 
-SRCS		= $(SRCDIR)main.c \
-			  $(SRCDIR)args/args.c \
-			  $(SRCDIR)error/error.c \
-			  $(SRCDIR)game/game.c \
-			  $(SRCDIR)game/window.c \
-			  $(SRCDIR)game/sprites.c \
-			  $(SRCDIR)game/key.c \
-			  $(SRCDIR)map/map.c \
-			  $(SRCDIR)map/valid.c \
-			  $(SRCDIR)player/player.c \
-			  $(SRCDIR)position/position.c \
-			  $(SRCDIR)read/read.c \
-			  $(SRCDIR)read/matrix.c \
-			  $(SRCDIR)render/render.c \
-			  $(SRCDIR)render/load.c \
-			  $(SRCDIR)utils/file.c \
-			  $(SRCDIR)utils/free.c
+SRC			= main.c \
+			  input/arg.c \
+			  input/valid.c \
+			  map/map.c \
+			  map/valid.c \
+			  map/load.c \
+			  map/locate.c \
+			  game/game.c \
+			  game/window.c \
+			  game/player.c \
+			  game/enemy.c \
+			  game/sprites.c \
+			  game/key.c \
+			  game/event.c \
+			  render/render.c \
+			  render/field.c \
+			  render/player.c \
+			  render/enemy.c \
+			  render/counter.c \
+			  utils/free.c \
+			  utils/error.c
+
+SRCS		= $(addprefix $(SRCDIR), $(SRC))
 
 ##### Object files
 

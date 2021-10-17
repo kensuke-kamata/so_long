@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   locate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 12:53:07 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/16 20:47:05 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/07 18:50:39 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/17 22:12:01 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
-int	main(int argc, char *argv[])
+int	locate_position(t_game *game, int mapcoord[2])
 {
-	t_game	game;
+	return (game->map.matrix[COL] * mapcoord[Y] + mapcoord[X]);
+}
 
-	if (!valid_arg(&game, argc, argv))
-		return (FAILURE);
-	if (!read_map(&game))
-		return (FAILURE);
-	if (!parse_map(&game))
-		return (free_map(&game, FAILURE));
-	if (!init_game(&game))
-		return (free_map(&game, FAILURE));
-	game_loop(&game);
-	return (free_map(&game, SUCCESS));
+int	locate_player_position(t_game *game)
+{
+	return (locate_position(game, game->player.position));
+}
+
+t_bool	is_player_at(t_game *game, t_symbol symbol)
+{
+	return (game->map.map[locate_player_position(game)] == (char)symbol);
 }

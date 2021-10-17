@@ -6,39 +6,20 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:07:01 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/08 16:53:34 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/17 20:03:47 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-t_bool	dup_map(t_game *game)
+t_bool	end_read(char *line, int fd, t_bool status)
 {
-	game->map.submap = ft_strdup(game->map.map);
-	if (!game->map.submap)
-		return (error_system());
-	return (TRUE);
+	free(line);
+	close(fd);
+	return (status);
 }
 
-t_bool	parse_map(t_game *game)
-{
-	if (!is_valid_elements(game))
-		return (error_msg(ERRMSG_INVELEMENT));
-	init_player(game);
-	if (!dup_map(game))
-		return (FALSE);
-	if (!is_surrounded_by_wall(
-			game,
-			game->player.position[X],
-			game->player.position[Y]))
-	{
-		free(game->map.submap);
-		return (error_msg(ERRMSG_SURROUNDED));
-	}
-	free(game->map.submap);
-	return (TRUE);
-}
-
+static
 t_bool	new_map(t_game *game, char *line)
 {
 	char	*newmap;
@@ -51,6 +32,7 @@ t_bool	new_map(t_game *game, char *line)
 	return (TRUE);
 }
 
+static
 void	init_map(t_game *game)
 {
 	game->map.map = NULL;
@@ -59,5 +41,25 @@ void	init_map(t_game *game)
 	game->map.matrix[ROW] = 0;
 	game->map.size[WIDTH] = 0;
 	game->map.size[HEIGHT] = 0;
-	game->map.collectables = 0;
+	game->map.collect = 0;
+}
+
+t_bool	read_map(t_game *game)
+{
+	int		fd;
+	char	*line;
+
+	init_map(game);
+	if (!load_map(game))
+		return (error_msg(ERRMSG_INVMAP));
+	fd = open(game->map.path_to_file, O_RDONLY);
+	while (get_next_line_beta(fd, &line) >= 0)
+	{
+		if (!line)
+			return (end_read(line, fd, TRUE));
+		if (!new_map(game, line))
+			return (end_read(line, fd, FALSE));
+		free(line);
+	}
+	return (end_read(line, fd, FALSE));
 }

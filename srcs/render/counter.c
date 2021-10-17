@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   counter.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 12:53:07 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/16 20:47:05 by kkamata          ###   ########.fr       */
+/*   Created: 2021/10/17 20:41:24 by kkamata           #+#    #+#             */
+/*   Updated: 2021/10/17 21:38:14 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
-int	main(int argc, char *argv[])
+void	render_counter(t_game *game)
 {
-	t_game	game;
+	int		index[2];
+	char	*str;
 
-	if (!valid_arg(&game, argc, argv))
-		return (FAILURE);
-	if (!read_map(&game))
-		return (FAILURE);
-	if (!parse_map(&game))
-		return (free_map(&game, FAILURE));
-	if (!init_game(&game))
-		return (free_map(&game, FAILURE));
-	game_loop(&game);
-	return (free_map(&game, SUCCESS));
+	index[X] = 0;
+	index[Y] = 0;
+	game->map.map[0] = MAPSYMT;
+	render_field_sprite(game, index, STEP);
+	str = ft_itoa(game->player.steps);
+	mlx_string_put(game->mlx, game->win, 28, 34, 0x000000, str);
+	free(str);
 }
