@@ -19,6 +19,7 @@ INCLUDES	= -I./includes
 ##### Directories
 
 SRCDIR		= ./srcs/
+BNSDIR		= ./bonus/
 
 ##### Source files
 
@@ -47,11 +48,41 @@ SRC			= main.c \
 			  utils/free.c \
 			  utils/error.c
 
+SRC_B		= main_bonus.c \
+			  input/arg_bonus.c \
+			  input/valid_bonus.c \
+			  map/map_bonus.c \
+			  map/valid_bonus.c \
+			  map/load_bonus.c \
+			  map/locate_bonus.c \
+			  game/game_bonus.c \
+			  game/window_bonus.c \
+			  game/player_bonus.c \
+			  game/enemy_bonus.c \
+			  game/sprites_bonus.c \
+			  game/key_bonus.c \
+			  game/event_bonus.c \
+			  sprites/field_bonus.c \
+			  sprites/player_bonus.c \
+			  sprites/enemy_bonus.c \
+			  render/render_bonus.c \
+			  render/field_bonus.c \
+			  render/player_bonus.c \
+			  render/enemy_bonus.c \
+			  render/counter_bonus.c \
+			  utils/free_bonus.c \
+			  utils/error_bonus.c
+
 SRCS		= $(addprefix $(SRCDIR), $(SRC))
+SRCS_B		= $(addprefix $(BNSDIR), $(SRC_B))
 
 ##### Object files
 
 OBJS		= $(SRCS:.c=.o)
+OBJS_B		= $(SRCS_B:.c=.o)
+ifdef BONUS
+OBJS		= $(OBJS_B)
+endif
 
 ############################################################
 ### Library
@@ -74,7 +105,7 @@ endif
 
 ############################################################
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 ############################################################
 ### Rules
@@ -97,7 +128,7 @@ clean:
 	@if [ -d $(MLXPATH) ] ; then \
 		$(MLXMAKE) clean ; \
 	fi
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS_B)
 
 fclean: clean
 	$(LIBFTMAKE) fclean
@@ -108,5 +139,8 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+bonus:
+	make BONUS=1
 
 ############################################################
