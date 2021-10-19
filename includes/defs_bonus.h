@@ -6,12 +6,12 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:33:21 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 15:56:58 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 16:34:56 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFS_H
-# define DEFS_H
+#ifndef DEFS_BONUS_H
+# define DEFS_BONUS_H
 
 // +------------------------------------------+ //
 //   Const definition                           //

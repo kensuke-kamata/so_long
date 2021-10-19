@@ -6,12 +6,12 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:43:18 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 15:56:42 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 16:35:15 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MSGS_H
-# define MSGS_H
+#ifndef MSGS_BONUS_H
+# define MSGS_BONUS_H
 
 # define MSG_MOVECOUNT "Steps"
 # define MSG_FINISHGAME "Game finished\n"
