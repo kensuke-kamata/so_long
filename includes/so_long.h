@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:45 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/17 22:13:57 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 15:00:39 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ int			key_press(t_keycode keycode, t_game *game);
 void		update_player(t_game *game, int x, int y);
 // +--- game/event --- + //
 void		monitor_event(t_game *game);
+// +--- sprites --- + //
+t_bool		init_sprite_field(t_game *game);
+t_bool		init_sprite_player(t_game *game);
+t_bool		init_sprite_enemy(t_game *game);
+t_bool		end_init_sprite(char **sprites, int time, char *msg, t_bool status);
 // +--- render --- + //
 void		render_pixel(t_game *game, int x, int y, uint32_t color);
 void		render_field(t_game *game);

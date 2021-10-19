@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:33:21 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/17 22:24:49 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 15:25:19 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,6 +220,7 @@ typedef struct s_player
 typedef struct s_enemy
 {
 	t_img	e[DIRECTIONS + 1];
+	t_bool	is_enemy;
 	int		position[2];
 	int		position0[2];
 	int		direct;

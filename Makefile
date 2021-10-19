@@ -36,6 +36,9 @@ SRC			= main.c \
 			  game/sprites.c \
 			  game/key.c \
 			  game/event.c \
+			  sprites/field.c \
+			  sprites/player.c \
+			  sprites/enemy.c \
 			  render/render.c \
 			  render/field.c \
 			  render/player.c \
