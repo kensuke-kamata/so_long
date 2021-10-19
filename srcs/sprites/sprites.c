@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:48:51 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 14:59:14 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 16:43:59 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ t_bool	init_sprite(t_game *game)
 	if (!init_sprite_field(game))
 		return (FALSE);
 	if (!init_sprite_player(game))
-		return (FALSE);
-	if (!init_sprite_enemy(game))
 		return (FALSE);
 	return (TRUE);
 }

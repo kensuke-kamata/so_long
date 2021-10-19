@@ -33,18 +33,14 @@ SRC			= main.c \
 			  game/game.c \
 			  game/window.c \
 			  game/player.c \
-			  game/enemy.c \
-			  game/sprites.c \
 			  game/key.c \
 			  game/event.c \
+			  sprites/sprites.c \
 			  sprites/field.c \
 			  sprites/player.c \
-			  sprites/enemy.c \
 			  render/render.c \
 			  render/field.c \
 			  render/player.c \
-			  render/enemy.c \
-			  render/counter.c \
 			  utils/free.c \
 			  utils/error.c
 
@@ -59,9 +55,9 @@ SRC_B		= main_bonus.c \
 			  game/window_bonus.c \
 			  game/player_bonus.c \
 			  game/enemy_bonus.c \
-			  game/sprites_bonus.c \
 			  game/key_bonus.c \
 			  game/event_bonus.c \
+			  sprites/sprites_bonus.c \
 			  sprites/field_bonus.c \
 			  sprites/player_bonus.c \
 			  sprites/enemy_bonus.c \

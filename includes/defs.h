@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:33:21 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 15:25:19 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 16:58:57 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,14 @@
 # define BER_EXTENSION ".ber"
 # define XPM_EXTENSION ".xpm"
 // +--- Map symbols --- + //
-# define SYMBOLS "01CESTPR"
+# define SYMBOLS "01CESP"
 // +--- Field --- + //
-# define ASSET_FIELD_TOTAL 6
+# define ASSET_FIELD_TOTAL 5
 # define ASSET_FIELD0 "./assets/tile00.xpm"
 # define ASSET_FIELD1 "./assets/tile01.xpm"
 # define ASSET_LADDER "./assets/ladder.xpm"
 # define ASSET_COLLECT "./assets/ball.xpm"
 # define ASSET_STONE "./assets/stone.xpm"
-# define ASSET_SIGN "./assets/sign.xpm"
 // +--- Player --- + //
 # define DIRECTIONS 4
 # define FRAMES 3
@@ -53,16 +52,8 @@
 # define ASSET_PLAYER_W00 "./assets/player_w00.xpm"
 # define ASSET_PLAYER_W01 "./assets/player_w01.xpm"
 # define ASSET_PLAYER_W02 "./assets/player_w02.xpm"
-// +--- Enemy --- + //
-# define ASSET_ENEMY_TOTAL 5
-# define ASSET_ENEMY_N00 "./assets/rocket_n00.xpm"
-# define ASSET_ENEMY_E00 "./assets/rocket_e00.xpm"
-# define ASSET_ENEMY_S00 "./assets/rocket_s00.xpm"
-# define ASSET_ENEMY_W00 "./assets/rocket_w00.xpm"
-# define ASSET_EXCLAMATION "./assets/exclamation.xpm"
 // +--- Move speed --- + //
 # define PLAYER_SPEED 4
-# define ENEMY_SPEED 8
 
 // +------------------------------------------+ //
 //   Enum definition                            //
@@ -114,9 +105,7 @@ typedef enum e_element
 	CLCT,
 	EXIT,
 	STNE,
-	STEP,
 	PLYR,
-	ENEM,
 }	t_element;
 
 typedef enum e_symbol
@@ -126,9 +115,7 @@ typedef enum e_symbol
 	MAPSYMC	= 'C',
 	MAPSYME	= 'E',
 	MAPSYMS	= 'S',
-	MAPSYMT	= 'T',
 	MAPSYMP	= 'P',
-	MAPSYMR	= 'R',
 }	t_symbol;
 
 typedef enum e_keycode
@@ -146,7 +133,6 @@ typedef enum e_event
 {
 	X_KEY_PRESS		= 2,
 	X_KEY_RELEASE	= 3,
-	X_EXPOSE		= 12,
 	X_KEY_EXIT		= 33,
 }	t_event;
 
@@ -155,7 +141,6 @@ typedef enum e_mask
 	X_NO_EVENT_MASK			= 0L,
 	X_KEY_PRESS_MASK		= 1L << 0,
 	X_KEY_RELEASE_MASK		= 1L << 1,
-	X_EXPOSURE_MASK			= 1L << 15,
 	X_STRUCTURE_NOTIFY_MASK	= 1L << 17,
 }	t_mask;
 
@@ -177,9 +162,7 @@ typedef struct s_flag
 	t_bool		KEYDOWN;
 	t_bool		PLAYER_RFOOT;
 	t_bool		PLAYER_LFOOT;
-	t_bool		PLAYER_FOUND;
 	t_bool		PLAYER_GOAL;
-	t_bool		ENEMY_WATCHING;
 }	t_flag;
 
 typedef struct s_img
@@ -217,16 +200,6 @@ typedef struct s_player
 	t_bool	walking;
 }	t_player;
 
-typedef struct s_enemy
-{
-	t_img	e[DIRECTIONS + 1];
-	t_bool	is_enemy;
-	int		position[2];
-	int		position0[2];
-	int		direct;
-	int		inc;
-}	t_enemy;
-
 typedef struct s_game
 {
 	void		*mlx;
@@ -237,7 +210,6 @@ typedef struct s_game
 	t_map		map;
 	t_flag		flags;
 	t_player	player;
-	t_enemy		enemy;
 }	t_game;
 
 #endif

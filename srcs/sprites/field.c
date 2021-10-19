@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:08 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 14:51:55 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 17:01:46 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ char	**_init_sprite_field(void)
 	sprites[CLCT] = ft_strdup(ASSET_COLLECT);
 	sprites[EXIT] = ft_strdup(ASSET_LADDER);
 	sprites[STNE] = ft_strdup(ASSET_STONE);
-	sprites[STEP] = ft_strdup(ASSET_SIGN);
 	if (!sprites[EMPT] || !sprites[WALL] || !sprites[CLCT]
-		|| !sprites[EXIT] || !sprites[STNE] || !sprites[STEP])
+		|| !sprites[EXIT] || !sprites[STNE])
 		end_init_sprite(
 			sprites, ASSET_FIELD_TOTAL,
 			"_init_sprite_field\n", FALSE);

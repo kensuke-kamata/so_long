@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:43:19 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 15:13:21 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 17:00:14 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ void	manage_walking_flags(t_game *game)
 static
 void	verify_new_position(t_game *game, int stride[2])
 {
-	if (is_player_at(game, MAPSYM1) || is_player_at(game, MAPSYMS)
-		|| (game->player.position[X] == game->enemy.position[X]
-			&& game->player.position[Y] == game->enemy.position[Y]))
+	if (is_player_at(game, MAPSYM1) || is_player_at(game, MAPSYMS))
 	{
 		update_player_position(game, -stride[X], -stride[Y]);
 		game->player.movable = FALSE;
@@ -80,9 +78,7 @@ void	move2direct(t_game *game, t_direct direct)
 
 int	key_press(t_keycode keycode, t_game *game)
 {
-	if (!game->flags.KEYDOWN
-		&& !game->flags.PLAYER_GOAL
-		&& !game->flags.PLAYER_FOUND)
+	if (!game->flags.KEYDOWN && !game->flags.PLAYER_GOAL)
 	{
 		if (keycode == KEY_W)
 			move2direct(game, NORTH);

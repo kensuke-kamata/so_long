@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 22:56:03 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 15:26:28 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 16:47:39 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ t_bool	init_flags(t_game *game)
 	game->flags.KEYDOWN = FALSE;
 	game->flags.PLAYER_RFOOT = FALSE;
 	game->flags.PLAYER_LFOOT = FALSE;
-	game->flags.PLAYER_FOUND = FALSE;
 	game->flags.PLAYER_GOAL = FALSE;
-	game->flags.ENEMY_WATCHING = FALSE;
 	game->fin = 0;
 	return (TRUE);
 }
@@ -37,10 +35,7 @@ int	main_loop(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
 	render_field(game);
-	if (game->enemy.is_enemy)
-		render_enemy(game);
 	render_player(game);
-	render_counter(game);
 	monitor_event(game);
 	return (0);
 }

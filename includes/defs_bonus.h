@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 20:33:21 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 16:34:56 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 16:57:01 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,6 @@ typedef enum e_event
 {
 	X_KEY_PRESS		= 2,
 	X_KEY_RELEASE	= 3,
-	X_EXPOSE		= 12,
 	X_KEY_EXIT		= 33,
 }	t_event;
 
@@ -155,7 +154,6 @@ typedef enum e_mask
 	X_NO_EVENT_MASK			= 0L,
 	X_KEY_PRESS_MASK		= 1L << 0,
 	X_KEY_RELEASE_MASK		= 1L << 1,
-	X_EXPOSURE_MASK			= 1L << 15,
 	X_STRUCTURE_NOTIFY_MASK	= 1L << 17,
 }	t_mask;
 

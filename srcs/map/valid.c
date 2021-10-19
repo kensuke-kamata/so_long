@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 19:31:56 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/17 19:52:51 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/10/19 16:41:25 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ t_bool	parse_map(t_game *game)
 	if (!has_elements(game))
 		return (error_msg(ERRMSG_INVELEMENT));
 	init_player(game);
-	init_enemy(game);
 	if (!dup_map(game))
 		return (FALSE);
 	if (!is_surrounded_by_wall(
