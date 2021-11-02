@@ -6,7 +6,7 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 20:13:10 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/19 16:11:26 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/11/02 11:52:08 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	monitor_event(t_game *game)
 		if (game->fin >= 128)
 			finish_game(game);
 	}
-	if (encounter_player(
+	if (game->enemy.is_enemy && encounter_player(
 			game,
 			game->enemy.position[X],
 			game->enemy.position[Y]))
