@@ -6,11 +6,14 @@
 /*   By: kkamata <kkamata@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:53:07 by kkamata           #+#    #+#             */
-/*   Updated: 2021/10/16 20:47:05 by kkamata          ###   ########.fr       */
+/*   Updated: 2021/11/02 11:29:21 by kkamata          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+// void end(void)__attribute__((destructor));
+// void end(void) { system("leaks so_long"); }
 
 int	main(int argc, char *argv[])
 {
