@@ -1,12 +1,13 @@
 # so_long
 
-![game.png](https://github.com/knkamata/so_long/game.png)
+![game.png](https://github.com/knkamata/so_long/blob/master/game.png)
 
 ## Goal
 Build a small 2D game using [MinilibX](https://github.com/42Paris/minilibx-linux), a simple X-Window programming API in C.
 
 ## Requirements
 MinilibX requires you to have the following Linux and macOS environments. Please see more details about [MinilibX](https://github.com/42Paris/minilibx-linux) from the link if you need.
+
 ### Requirements for Linux
 - gcc
 - make
@@ -17,6 +18,7 @@ MinilibX requires you to have the following Linux and macOS environments. Please
 # e.g. (Debian/Ubuntu)
 $ sudo apt-get install gcc make xorg libxext-dev libbsd-dev
 ```
+
 ### Requirements for macOS
 - [Xquartz](https://www.xquartz.org/)
 ```shell
